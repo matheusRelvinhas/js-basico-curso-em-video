@@ -1,26 +1,44 @@
+let res = document.querySelector('div#res');
+res.style.textAlign = 'center';
+
 function verificar() {
-  let= data = new Date()
+  let data = new Date()
   let ano = data.getFullYear()
-  let formularioAno = document.getElementById('txtano')
-  let res = document.getElementById('res')
-  if (formularioAno.value.lenght == 0 || Number(formularioAno.value) > ano) {
-    window.alert('[ERRO] Verifique os dados e tente novamente')
+  let fAno = document.getElementById('txtano')
+  if (fAno.value.length == 0 || Number(fAno.value) > ano ) {
+    window.alert('[ERRO] Verifique os dados e tente novamente!')
   } else {
-    res.innerHTML('<p>oi</p>')
+    let fSex = document.getElementsByName('radsex')
+    let idade = ano - Number(fAno.value)
+    let genero = ''
+    let img = document.createElement('img')
+    img.setAttribute('id', 'foto' )
+    if (fSex[0].checked) {
+      genero = 'Homem'
+      if (idade >= 0 && idade < 18) {
+        img.setAttribute('src', 'homem-crianca.png' )
+      } else if (idade >= 18 && idade < 40) {
+        img.setAttribute('src', 'homem-adulto.png' )
+      } else {
+        img.setAttribute('src', 'homem-velho.png' )
+      }
+    } else {
+      genero = 'Mulher'
+      if (idade >= 0 && idade < 18) {
+        img.setAttribute('src', 'mulher-crianca.png' )
+      } else if (idade >= 18 && idade < 40) {
+        img.setAttribute('src', 'mulher-adulta.png' )
+      } else {
+        img.setAttribute('src', 'mulher-velha.png' )
+      }
+    }
+    res.innerHTML = `Detectamos ${genero} com ${idade} anos`
+    res.appendChild(img)
   }
 }
 
 
 
 
-//    let formularioSex = document.getElementsByName('radsex')
-//let idade = ano - Number(formularioAno.value)
-//let genero = ''
-//if (formularioSex[0].checked) {
-//  genero = 'Homem'
-//} else if (formularioSex[1].checked) {
-//  genero = 'Mulher'
-//}
-//res.style.textAlign = 'center'
-//res.innerHTML = `Detectamos ${genero} com ${idade} anos`
-//}
+
+
