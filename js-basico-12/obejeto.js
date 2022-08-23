@@ -23,3 +23,8 @@ console.log('')
 
 console.log(typeof num);
 console.log(typeof friend);
+
+let s = 'JavaScript'
+let uS = s.toUpperCase()
+
+console.log(uS)
