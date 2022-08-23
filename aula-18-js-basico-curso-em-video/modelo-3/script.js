@@ -11,7 +11,7 @@ function contar() {
     let end = Number(numEnd.value)
     let pass = Number(numPass.value)
     if (init < end) {
-      if (pass < 0) {
+      if (pass <= 0) {
         window.alert('[ERROR] Não é possível calcular')
       } else {
         for (i = init; i <= end; i += pass) {
